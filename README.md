@@ -71,16 +71,16 @@ RISC-V Proxy Kernel and Boot Loader: [spike-ci.tar](https://github.com/riscv-sof
 ## [Spike RISC-V ISA Simulator](https://github.com/riscv-software-src/riscv-isa-sim) 
 RISC-V ISA 模拟器 `Spike` 实现了一个或多个 RISC-V harts 的功能模型。 它以用来庆祝美国横贯大陆铁路建成的金色道钉而得名。
 
-Interactive Debug Mode
-To invoke interactive debug mode, launch spike with -d:
+## 交互式调试模式
+交互式调试模式 要调用交互式调试模式，请使用 -d 启动 spike:
 
     $ spike -d pk hello
 
-To see the contents of an integer register (0 is for core 0):
+要查看整数寄存器的内容（0 代表核心 0）:
 
     : reg 0 a0
 
-To see the contents of a floating point register:
+要查看浮点寄存器的内容:
 
     : fregs 0 ft0
 
@@ -88,32 +88,32 @@ or:
 
     : fregd 0 ft0
 
-depending upon whether you wish to print the register as single- or double-precision.
+取决于您希望将寄存器打印为单精度还是双精度.
 
-To see the contents of a memory location (physical address in hex):
+要查看内存位置的内容（十六进制物理地址）:
 
     : mem 2020
 
-To see the contents of memory with a virtual address (0 for core 0):
+要查看具有虚拟地址（核心 0 为 0）的内存内容:
 
     : mem 0 2020
 
-You can advance by one instruction by pressing the enter key. You can also execute until a desired equality is reached:
+您可以按回车键前进一条指令。 您还可以执行直到达到所需的相等性:
 
     : until pc 0 2020                   (stop when pc=2020)
     : until reg 0 mie a                 (stop when register mie=0xa)
     : until mem 2020 50a9907311096993   (stop when mem[2020]=50a9907311096993)
 
-Alternatively, you can execute as long as an equality is true:
+或者，只要相等性为真，您就可以执行:
 
     : while mem 2020 50a9907311096993
 
-You can continue execution indefinitely by:
+您可以通过以下方式无限期地继续执行:
 
     : r
 
-At any point during execution (even without -d), you can enter the interactive debug mode with <control>-<c>.
+在执行期间的任何时候，您都可以使用 `Ctrl+c` 进入交互式调试模式。
 
-To end the simulation from the debug prompt, press <control>-<c> or:
+要从调试提示符结束模拟，请按 `Ctrl+c` 或:
 
     : q
