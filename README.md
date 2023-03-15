@@ -1,3 +1,5 @@
+![riscv.webp](https://raw.githubusercontent.com/hongwenjun/riscv64/main/img/riscv.webp)
+
 # [riscv64](https://hub.docker.com/r/hongwenjun/riscv64)
 
 `Docker` 版 `RISC-V` 交叉编译器和执行 `riscv-pke` 的环境(Spike RISC-V ISA Simulator)
@@ -13,6 +15,7 @@ docker run -itd  --restart=always   \
     -v /app:/app  --name riscv64 \
     hongwenjun/riscv64  sh
 ```
+- 挂载目录 `-v /app:/app` ,前一个是宿主机目录，后一个是容器中挂载的目录 
 
 ## 进入容器 `riscv64` 
 ```
@@ -68,11 +71,13 @@ RISC-V Proxy Kernel and Boot Loader: [spike-ci.tar](https://github.com/riscv-sof
 
 ---
 
+![riscv-color.svg](https://raw.githubusercontent.com/hongwenjun/riscv64/main/img/riscv-color.svg)
+
 ## [Spike RISC-V ISA Simulator](https://github.com/riscv-software-src/riscv-isa-sim) 
 RISC-V ISA 模拟器 `Spike` 实现了一个或多个 RISC-V harts 的功能模型。 它以用来庆祝美国横贯大陆铁路建成的金色道钉而得名。
 
 ## 交互式调试模式
-交互式调试模式 要调用交互式调试模式，请使用 -d 启动 spike:
+要调用交互式调试模式，请使用 -d 启动 spike:
 
     $ spike -d pk hello
 
@@ -84,7 +89,7 @@ RISC-V ISA 模拟器 `Spike` 实现了一个或多个 RISC-V harts 的功能模�
 
     : fregs 0 ft0
 
-or:
+或者:
 
     : fregd 0 ft0
 
