@@ -122,3 +122,19 @@ RISC-V ISA 模拟器 `Spike` 实现了一个或多个 RISC-V harts 的功能模�
 要从调试提示符结束模拟，请按 `Ctrl+c` 或:
 
     : q
+
+## [RARS——RISC-V 汇编器和运行时模拟器](https://github.com/TheThirdOne/rars)
+RARS，即 RISC-V 汇编程序、模拟器和运行时，将汇编和模拟 RISC-V 汇编语言程序的执行。 它的主要目标是为开始使用 RISC-V 的人们提供一个有效的开发环境。
+
+### 文档
+可以在 wiki 上找到有关支持的指令、系统调用、汇编器指令等的文档。 可以通过帮助菜单访问下载中包含的文档。
+
+### instructions
+https://github.com/TheThirdOne/rars/wiki/Supported-Instructions
+
+### system calls
+https://github.com/TheThirdOne/rars/wiki/Environment-Calls
+
+### assembler directives
+https://github.com/TheThirdOne/rars/wiki/Assembler-Directives
+
