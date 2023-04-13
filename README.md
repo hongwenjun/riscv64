@@ -4,6 +4,11 @@
 
 `Docker` 版 `RISC-V` 交叉编译器和执行 `riscv-pke` 的环境(Spike RISC-V ISA Simulator)
 
+## 中国大陆使用阿里云镜像安装 `Docker` 服务
+```
+wget get.docker.com -O get.docker.sh
+bash  get.docker.sh  --mirror Aliyun
+```
 ## [Docker Pull 命令]((https://hub.docker.com/r/hongwenjun/riscv64))
 ```
 docker pull hongwenjun/riscv64
