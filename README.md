@@ -26,6 +26,7 @@ docker run -itd  --restart=always   \
 ```
 docker exec -it  riscv64 bash
 ```
+![](https://github.com/hongwenjun/riscv64/blob/main/img/RiscV.gif)
 
 ### 另一种构建 Docker Riscv64 方法
 https://github.com/hongwenjun/riscv64/blob/main/Another_way_to_build_Docker_Riscv64.md
