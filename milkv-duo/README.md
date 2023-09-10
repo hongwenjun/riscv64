@@ -1,4 +1,46 @@
-## Milkv-duo镜像包含 Python 3.9.5 和 pip3  nano
+## Milkv-duo镜像包含 Python 3.9.5 和 pip3 nano htop vim tmux screen neofetch git gdb
+
+## milkv-duo-20230910-0623.img.7z      37.8 MB (39,688,017 字节)
+- github下载  https://github.com/hongwenjun/riscv64/tree/main/milkv-duo
+
+- 中国下载地址:   https://wwcz.lanzout.com/i3Qkh17wwl4d
+
+![milkv_duo_musl_riscv64_defconfig|688x500](upload://wCMfvKwRsY8NPPPIiZkfyoxN4Hi.gif)
+
+##  参考上图，使用  make menuconfig 命令 添加软件包
+```
+cd /root/duo-buildroot-sdk/buildroot-2021.05
+make milkv_duo_musl_riscv64_defconfig
+make menuconfig
+```
+
+## 保存文件成 `configs/milkv_duo_musl_riscv64_defconfig`
+可以复制粘贴到窗口中
+
+##  编译的时候会自动外网下载 软件包源码，所以编译前使用类似命令添加 http 代理
+```
+http_proxy=http://192.168.1.135:58010
+export http_proxy=$http_proxy
+export https_proxy=$http_proxy
+```
+
+##  最后执行一键编译脚本 build_milkv.sh
+./build_milkv.sh
+
+## 为什么查看RAM只显示28M?
+因为有一部分RAM被分配绐了ION，修改这个 ION_SIZE 的值为0然后编译生成固件
+```
+vim build/boards/cv180x/cv1800b_milkv_duo_sd/memmap.py
+#  memmap.py 文件第43行  改成  ION_SIZE = 0 * SIZE_1M
+ION_SIZE = 26.80078125 * SIZE_1M
+```
+
+![QQ截图20230910144515|690x451](upload://59YC7MSeIHv3PFSLcwb9nmbJrSU.png)
+
+编译选了些软件 有 python pip3 nano vim less grep
+
+因为选了mc 失败了2次，把 mc 取消通过编译了
+
 
 ### milkv-duo-20230907-1536.img.7z	29.2 MB (30,623,082 字节)
 
