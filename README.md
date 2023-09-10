@@ -305,3 +305,17 @@ mystrcpy:
 - `shr`: 将一个数右移指定的位数。
 - `inc`: 将一个数加 1。
 - `dec`: 将一个数减 1。
+
+----------
+
+## Milkv-duo 编译镜像添加 Python Pip3 Nano vim tmux 等更多软件 动画演示
+![](https://github.com/hongwenjun/riscv64/blob/main/img/milkv_duo_musl_riscv64_defconfig.gif)
+
+
+## Milkv-duo镜像包含 Python 3.9.5 和 pip3 nano htop vim tmux screen neofetch git gdb
+
+## milkv-duo-20230910-0623.img.7z      37.8 MB (39,688,017 字节)
+- github下载  https://github.com/hongwenjun/riscv64/tree/main/milkv-duo
+
+- 中国下载地址:   https://wwcz.lanzout.com/i3Qkh17wwl4d
+

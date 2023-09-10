@@ -5,7 +5,8 @@
 
 - 中国下载地址:   https://wwcz.lanzout.com/i3Qkh17wwl4d
 
-![milkv_duo_musl_riscv64_defconfig|688x500](upload://wCMfvKwRsY8NPPPIiZkfyoxN4Hi.gif)
+## Milkv-duo 编译镜像添加 Python Pip3 Nano vim tmux 等更多软件 动画演示
+![](https://github.com/hongwenjun/riscv64/blob/main/img/milkv_duo_musl_riscv64_defconfig.gif)
 
 ##  参考上图，使用  make menuconfig 命令 添加软件包
 ```
@@ -35,7 +36,7 @@ vim build/boards/cv180x/cv1800b_milkv_duo_sd/memmap.py
 ION_SIZE = 26.80078125 * SIZE_1M
 ```
 
-![QQ截图20230910144515|690x451](upload://59YC7MSeIHv3PFSLcwb9nmbJrSU.png)
+![](https://github.com/hongwenjun/riscv64/blob/main/img/neofetch.png)
 
 编译选了些软件 有 python pip3 nano vim less grep
 
