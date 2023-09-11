@@ -132,3 +132,41 @@ ip addr add 192.168.42.2/24 dev $ni
 
 ping 192.168.42.1
 ```
+
+##  Milkv Duo 安装 pinpong 库 
+
+使用的 pinpong 库存放在 [pinpong.zip](https://wwcz.lanzout.com/ismYs180y53c)
+
+使用 scp 命令将压缩包上传
+
+    scp pinpong.zip root@192.168.42.1:~
+
+在 Milkv Duo 上进行解压、安装和测试， `site-packages` 目录在不同 python 版本会有所不同，这里是 python3.9
+
+```
+    unzip -q pinpong.zip
+    cp -r pinpong /usr/lib/python3.9/site-packages/
+    python -c 'import pinpong'
+```
+
+![](https://gitee.com/weilinfox/pinpong-milkv-duo-doc/raw/master/img/pinpong_install.png)
+
+##  查看例程和板载资源
+
+例程在 `pinpong/examples/milkv-Duo/` 目录下，板载资源可以在 `pinpong/extension/milkvDuo.py`
+
+中看到
+```
+    ls /usr/lib/python3.9/site-packages/pinpong/examples/milkv-Duo/
+    less /usr/lib/python3.9/site-packages/pinpong/extension/milkvDuo.py
+```
+
+![](https://gitee.com/weilinfox/pinpong-milkv-duo-doc/raw/master/img/pinpong_example.png)
+
+所有预置的例程，可以用于测试和开发参考
+![](https://gitee.com/weilinfox/pinpong-milkv-duo-doc/raw/master/img/pinpong_extension.png)
+
+框选的部分表示支持的资源，支持 3 路 I2C 串口、 1 路 SPI 串口， 23 路 GPIO 引脚、 2 路 ADC 、 10 路 PWM 。
+
+文章源链接:
+https://gitee.com/weilinfox/pinpong-milkv-duo-doc/blob/master/README.md#%E5%AE%89%E8%A3%85-pinpong-%E5%BA%93
