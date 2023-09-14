@@ -133,21 +133,49 @@ ip addr add 192.168.42.2/24 dev $ni
 ping 192.168.42.1
 ```
 
-##  Milkv Duo 安装 pinpong 库 
+## Milkv Duo 安装 pinpong 库，点亮蓝色 LED 灯
 
-使用的 pinpong 库存放在 [pinpong.zip](https://wwcz.lanzout.com/ismYs180y53c)
+- 下载 Milkv Duo 的  pinpong 库 [pinpong.zip](https://wwcz.lanzout.com/imCF9186lw4d)
+- 本 `pinpong` 包从官方 [milkv-duo-v1.0.4-2023-0908.img.zip](https://github.com/milkv-duo/duo-buildroot-sdk/releases/tag/Duo-V1.0.4) 中提取，如果你使用官方镜像，不用安装可以直接使用
 
-使用 scp 命令将压缩包上传
+- 使用 scp 命令将压缩包上传
 
-    scp pinpong.zip root@192.168.42.1:~
+	scp pinpong.zip root@192.168.42.1:~
 
-在 Milkv Duo 上进行解压、安装和测试， `site-packages` 目录在不同 python 版本会有所不同，这里是 python3.9
+- 在 Milkv Duo 上进行解压、安装和测试， site-packages 目录在不同 python 版本会有所不同，这里是 python3.9
 
+	unzip -q pinpong.zip
+	cp -r pinpong /usr/lib/python3.9/site-packages/
+	cp -r serial /usr/lib/python3.9/site-packages/
+	python -c 'import pinpong'
+	
+## 查看 duo_res 资源定义，比如 蓝色 LED 的 pin 定义 
+	less /usr/lib/python3.9/site-packages/pinpong/extension/milkvDuo.py
+
+- vi blink.py  添加下面内容，使用  python3 blink.py 测试
 ```
-    unzip -q pinpong.zip
-    cp -r pinpong /usr/lib/python3.9/site-packages/
-    python -c 'import pinpong'
+# -*- coding: utf-8 -*-
+
+#实验效果：控制UNIHIKER板载LED灯一秒闪烁一次
+#接线：使用电脑连接一块UNIHIKER主控板
+
+import time
+from pinpong.board import Board,Pin
+
+Board("MILKV-DUO").begin()  #初始化，选择板型，不输入板型则进行自动识别
+
+led = Pin(Pin.D0, Pin.OUT) #引脚初始化为电平输出
+
+while True:
+  led.value(1) #输出高电平
+  print("1") #终端打印信息
+  time.sleep(1) #等待1秒 保持状态
+
+  led.value(0) #输出低电平
+  print("0") #终端打印信息
+  time.sleep(1) #等待1秒 保持状态
 ```
+
 
 ![](https://gitee.com/weilinfox/pinpong-milkv-duo-doc/raw/master/img/pinpong_install.png)
 
