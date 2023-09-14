@@ -2,7 +2,6 @@
 
 ## milkv-duo-20230910-0623.img.7z      37.8 MB (39,688,017 字节)
 - github下载  https://github.com/hongwenjun/riscv64/tree/main/milkv-duo
-
 - 中国下载地址:   https://wwcz.lanzout.com/i3Qkh17wwl4d
 
 ## Milkv-duo 编译镜像添加 Python Pip3 Nano vim tmux 等更多软件 动画演示
@@ -47,34 +46,6 @@ ION_SIZE = 26.80078125 * SIZE_1M
 
 - 内存 64MB 可用,  包含  Python 3.9.5  和 pip3 
 - sqlite3  git 7zr zip zstd htop 和 nano 文本编辑器
-
-```
-pip3 list
-Package           Version  
------------------ ---------
-certifi           2020.12.5
-chardet           4.0.0    
-click             7.1.2    
-Flask             1.1.2    
-idna              2.10     
-itsdangerous      1.1.0    
-Jinja2            2.11.3   
-MarkupSafe        1.1.1    
-oauthlib          3.1.0    
-Pillow            8.2.0    
-pip               20.0.2   
-PyMySQL           0.9.3    
-PyQRCode          1.2.1    
-regex             2021.4.4 
-request-id        1.0      
-requests          2.25.1   
-requests-oauthlib 1.3.0    
-setuptools        44.0.0   
-six               1.15.0   
-urllib3           1.26.4   
-WebOb             1.8.6    
-Werkzeug          1.0.1  
-```
 
 ### rufus-4.2.exe   另一款 Milkv-duo镜像 img 写TF卡工具
 --------------------------------------------------
@@ -121,7 +92,6 @@ reboot
 df -h
 resize2fs /dev/mmcblk0p2
 
-
 # 使用 Linux 系统接开发板 虚拟网卡IP添加
 ip a
 
@@ -139,31 +109,26 @@ ping 192.168.42.1
 - 本 `pinpong` 包从官方 [milkv-duo-v1.0.4-2023-0908.img.zip](https://github.com/milkv-duo/duo-buildroot-sdk/releases/tag/Duo-V1.0.4) 中提取，如果你使用官方镜像，不用安装可以直接使用
 
 - 使用 scp 命令将压缩包上传
-
-	scp pinpong.zip root@192.168.42.1:~
-
+```
+scp pinpong.zip root@192.168.42.1:~
+```
 - 在 Milkv Duo 上进行解压、安装和测试， site-packages 目录在不同 python 版本会有所不同，这里是 python3.9
-
-	unzip -q pinpong.zip
-	cp -r pinpong /usr/lib/python3.9/site-packages/
-	cp -r serial /usr/lib/python3.9/site-packages/
-	python -c 'import pinpong'
-	
+```
+unzip -q pinpong.zip
+cp -r pinpong /usr/lib/python3.9/site-packages/
+cp -r serial /usr/lib/python3.9/site-packages/
+python -c 'import pinpong'
+```	
 ## 查看 duo_res 资源定义，比如 蓝色 LED 的 pin 定义 
-	less /usr/lib/python3.9/site-packages/pinpong/extension/milkvDuo.py
-
+```
+less /usr/lib/python3.9/site-packages/pinpong/extension/milkvDuo.py
+```
 - vi blink.py  添加下面内容，使用  python3 blink.py 测试
 ```
-# -*- coding: utf-8 -*-
-
-#实验效果：控制UNIHIKER板载LED灯一秒闪烁一次
-#接线：使用电脑连接一块UNIHIKER主控板
-
 import time
 from pinpong.board import Board,Pin
 
 Board("MILKV-DUO").begin()  #初始化，选择板型，不输入板型则进行自动识别
-
 led = Pin(Pin.D0, Pin.OUT) #引脚初始化为电平输出
 
 while True:
@@ -176,14 +141,11 @@ while True:
   time.sleep(1) #等待1秒 保持状态
 ```
 
-
 ![](https://gitee.com/weilinfox/pinpong-milkv-duo-doc/raw/master/img/pinpong_install.png)
 
 ##  查看例程和板载资源
 
-例程在 `pinpong/examples/milkv-Duo/` 目录下，板载资源可以在 `pinpong/extension/milkvDuo.py`
-
-中看到
+例程在 `pinpong/examples/milkv-Duo/` 目录下，板载资源可以在 `pinpong/extension/milkvDuo.py` 中看到
 ```
     ls /usr/lib/python3.9/site-packages/pinpong/examples/milkv-Duo/
     less /usr/lib/python3.9/site-packages/pinpong/extension/milkvDuo.py
