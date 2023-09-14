@@ -1,4 +1,4 @@
-English | [简体中文](./README-zh.md)
+English | [简体中文](./README_zh.md)
 
 ## Milkv-duo image contains Python 3.9.5 and pip3 nano htop vim tmux screen neofetch git gdb
 ### milkv-duo-20230910-0623.img.7z 37.8 MB (39,688,017 bytes)
