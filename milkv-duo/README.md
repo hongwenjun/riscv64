@@ -1,4 +1,8 @@
 English | [简体中文](./README_zh.md)
+## Milkv-duo [duo-debian-full.7z](https://drive.google.com/file/d/1TqMuFsRo5Es2Y6-qAyxV8jnFdAkcCp4v/view?usp=sharing) (519M)   [Download](https://drive.google.com/file/d/1TqMuFsRo5Es2Y6-qAyxV8jnFdAkcCp4v/view?usp=sharing)
+- A lot of Debian community software that can use apt to install gcc gdb
+- Debian porting notes by Milkv Duo:  https://www.taterli.com/9532/
+---
 
 ## Milkv-duo image contains Python 3.9.5 and pip3 nano htop vim tmux screen neofetch git gdb
 ### milkv-duo-20230910-0623.img.7z 37.8 MB (39,688,017 bytes)
